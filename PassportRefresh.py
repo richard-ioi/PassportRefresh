@@ -1,4 +1,5 @@
 # Import the required modules
+import time
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -26,6 +27,7 @@ def check_through_mairies():
     while(check_exists_by_class_name("fc-event-container")==False):
         if(i>=45):
             i=28
+            time.sleep(10)
         else:
             i+=1
         driver.get('https://teleservices.paris.fr/rdvtitres/jsp/site/Portal.jsp?page=appointment&view=getViewAppointmentCalendar&id_form='+str(i)+'&nbPlacesToTake=1')
@@ -65,9 +67,9 @@ def appointment_fill_infos():
 # Main Function
 if __name__ == '__main__':
 
-    login="login@mail.com"
+    login="LOGIN"
     password="PASSWORD"
-
+    postalCode="75012"
     phone='0612345678'
     
     # print("=========")
